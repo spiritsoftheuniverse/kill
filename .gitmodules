@@ -1,0 +1,4 @@
+ECHO is on.
+[submodule "kill"]
+    path = kill
+    url = https://github.com/spiritsoftheuniverse/kill.git
