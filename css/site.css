@@ -16,6 +16,23 @@ body {
         color:#999;
         font-family : "jura";
 }
+.bg
+{
+        position:fixed;
+        width:100%;
+        height:100%;
+        z-index:-1;
+        background-image:url('../images/checker.png');
+        animation: scrollUp 10s linear infinite; /* Adjust duration and timing */
+}
+@keyframes scrollUp {
+        from {
+            background-position-y: 0;
+        }
+        to {
+            background-position-y: -101px; /* Moves up by 101 pixels */
+        }
+    }
 a:link{
         color:#0F0;
 }
@@ -35,15 +52,9 @@ a:hover{
 {
         margin-right:12px;
 }
-.header
-{
-        display: flex;   
-        font-family: "komika";
-        font-size:32px;
-        margin-right:24px;
-}
 .footer
 {
+        margin-top:24px;
         text-align:center;
         font-size:80%;
 }
