@@ -42,6 +42,15 @@ a:visited{
 a:hover{
         color:#FAC;
 }
+.phead
+{
+        
+        font-family: "komika";
+}
+.pindent
+{
+        margin:8px;
+}
 .headerContainer
 {
         display: flex;           /* Enable flexbox */
