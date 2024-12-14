@@ -69,6 +69,6 @@ a:hover{
 }
 .content
 {
-        
+        display:none;
         margin-top:24px;
 }
