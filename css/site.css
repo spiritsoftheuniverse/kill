@@ -16,8 +16,59 @@ body {
         color:#999;
         font-family : "jura";
 }
-.content
+a:link{
+        color:#0F0;
+}
+a:visited{
+        color:#0F0;
+}
+a:hover{
+        color:#FAC;
+}
+.headerContainer
+{
+        display: flex;           /* Enable flexbox */
+        align-items: center;      /* Align items vertically at the center */
+        justify-content: flex-start; /* Ensure header stays aligned to the left */
+}
+.killhead
+{
+        margin-right:12px;
+}
+.header
+{
+        display: flex;   
+        font-family: "komika";
+        font-size:32px;
+        margin-right:24px;
+}
+.footer
+{
+        text-align:center;
+        font-size:80%;
+}
+.buttonContainer
+{
+        display: flex;          
+        gap: 16px;                
+}
+.button
+{
+        font-family: "komika";
+        font-size:20px;
+        cursor:pointer;
+}
+.button:hover
+{
+        color:#F00;
+}
+.container
 {
         margin:0 auto;
         max-width:1024px;
+}
+.content
+{
+        
+        margin-top:24px;
 }
