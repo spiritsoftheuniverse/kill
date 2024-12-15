@@ -92,7 +92,7 @@ function parseCSV(file) {
             // Build the data object
             results.data.forEach((row, index) => {
               // Use the row index (or any custom logic) as the key
-              dataObject[`Row${index}`] = row;
+              dataObject[index] = row;
             });
       
             console.log(dataObject); // Log the final object
