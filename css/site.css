@@ -33,11 +33,16 @@ body {
             background-position-y: -101px; /* Moves up by 101 pixels */
         }
     }
+.donationlink
+{
+        font-size:150%;
+        text-decoration:none;
+}
 a:link{
-        color:#0F0;
+        color:rgb(236, 255, 128);
 }
 a:visited{
-        color:#0F0;
+        color:rgb(236, 255, 128);
 }
 a:hover{
         color:#FAC;
@@ -96,6 +101,14 @@ p{
         display:none;
         margin-top:24px;
 }
+.audiocontainer
+{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:12px;
+}
 .hueloop {
         filter: hue-rotate(0deg);
         animation: hueLoop 5s linear infinite;
@@ -109,12 +122,36 @@ p{
         100% {
           filter: hue-rotate(360deg);
         }
-      }
-@media (max-width: 450px) {
+}
+.donationsPanel
+{
+        display:flex;
+        align-items:flex-start;
+        justify-content:center;
+        gap:12px;
+}
+.donationBox
+{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:12px;
+        margin:12px;
+        border-radius:4px;
+        padding:12px;
+}
+@media (max-width: 500px) {
         .buttonContainer
         {
                 display: flex;
                 gap:0px;
+                flex-direction: column;
+        }
+}
+@media (max-width: 340px) {
+        .donationsPanel
+        {
                 flex-direction: column;
         }
 }

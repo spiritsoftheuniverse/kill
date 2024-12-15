@@ -1,5 +1,6 @@
-var pages = ['home','art','wpaper','shop','support'];
+var pages = ['home','art','wpaper','shop','support', 'credit'];
 var currentpage=  'home';
+
 $(document).ready(function(){
         const currentYear = new Date().getFullYear();
         $('.footerdate').html(currentYear);
@@ -27,6 +28,26 @@ $(document).ready(function(){
                         $('#shopbutton').click();
                 }
         })
+        $('#shopclick2').click(function(){
+                if(currentpage != 'shop')
+                {
+                        $('#shopbutton').click();
+                }
+        })
+        $('#supportclick').click(function(){
+                if(currentpage != 'support')
+                {
+                        $('#supportbutton').click();
+                }
+        })
+        
+        $('#creditclick').click(function(){
+                if(currentpage != 'credit')
+                {
+                        $('#creditbutton').click();
+                }
+        })
+        parseCSV('data/patreon.csv');
 });
 function showPage(page)
 {
@@ -49,4 +70,39 @@ function showPage(page)
                 'color' : '#F00',
         });
         currentpage = page;
+        stopAllAudio()
+}
+function stopAllAudio() {
+        // Select all audio elements on the page
+        const audioElements = document.querySelectorAll('audio');
+        
+        // Loop through and stop each one
+        audioElements.forEach(audio => {
+          audio.pause(); // Pause the audio
+          audio.currentTime = 0; // Reset to the beginning
+        });
+}
+function parseCSV(file) {
+        Papa.parse('https://spiritsoftheuniverse.github.io/kill/'+file, {
+                download: true, // Enables downloading from the given URL
+                header: true,   // Use the first row as headers
+                skipEmptyLines: true, // Skip empty rows
+                complete: function(results) {
+                  const dataObject = {};
+            
+                  // Build the data object
+                  results.data.forEach(row => {
+                    const rowName = row.RowName; // Use "RowName" as the key
+                    if (rowName) {
+                      const { RowName, ...rest } = row; // Exclude RowName from the values
+                      dataObject[rowName] = rest;
+                    }
+                  });
+            
+                  console.log(dataObject); // Log the final object
+                },
+                error: function(error) {
+                  console.error("Error parsing CSV:", error);
+                }
+              });
 }
