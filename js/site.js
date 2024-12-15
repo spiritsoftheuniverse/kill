@@ -116,14 +116,14 @@ function parseCSV(file) {
       }
 function writePatreonList(data)
 {
-        var html = `<table cellpadding="4">
+        var html = `<table cellpadding="4" cellspacing="4">
                                 <tr style="text-decoration:underline">
                                         <td><em>Member</em></td>
                                         <td><em>Tier</em></td>
                                 </tr>
                                
                         `;
-                        var formerhtml = `<table cellpadding="4">
+                        var formerhtml = `<table cellpadding="4" cellspacing="4">
                         <tr style="text-decoration:underline">
                                 <td><em>Member</em></td>
                                 <td><em>Tier</em></td>
@@ -166,7 +166,7 @@ function writePatreonList(data)
 }
 function writeSupportersList(data)
 {
-        var html = `<table cellpadding="4">
+        var html = `<table cellpadding="4" cellspacing="4">
         <tr style="text-decoration:underline">
                 <td><em>Member</em></td>
                 <td><em>Date</em></td>
