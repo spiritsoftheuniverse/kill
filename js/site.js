@@ -1,4 +1,5 @@
-var pages = ['home','art','wpaper','shop'];
+var pages = ['home','art','wpaper','shop','support'];
+var currentpage=  'home';
 $(document).ready(function(){
         const currentYear = new Date().getFullYear();
         $('.footerdate').html(currentYear);
@@ -8,6 +9,24 @@ $(document).ready(function(){
                 showPage($(this).attr('data'));
             });
         }
+        $('#artclick').click(function(){
+                if(currentpage != 'art')
+                {
+                        $('#artbutton').click();
+                }
+        })
+        $('#whitepaperclick').click(function(){
+                if(currentpage != 'wpaper')
+                {
+                        $('#wpaperbutton').click();
+                }
+        }) 
+        $('#shopclick').click(function(){
+                if(currentpage != 'shop')
+                {
+                        $('#shopbutton').click();
+                }
+        })
 });
 function showPage(page)
 {
@@ -29,4 +48,5 @@ function showPage(page)
                 'pointer-events' : 'none',
                 'color' : '#F00',
         });
+        currentpage = page;
 }

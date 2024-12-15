@@ -70,7 +70,7 @@ a:hover{
 .buttonContainer
 {
         display: flex;          
-        gap: 16px;                
+        gap: 16px;
 }
 .button
 {
@@ -87,6 +87,9 @@ a:hover{
 {
         margin:0 auto;
         max-width:1024px;
+}
+p{
+        line-height:1.25;
 }
 .content
 {
@@ -107,3 +110,11 @@ a:hover{
           filter: hue-rotate(360deg);
         }
       }
+@media (max-width: 450px) {
+        .buttonContainer
+        {
+                display: flex;
+                gap:0px;
+                flex-direction: column;
+        }
+}
