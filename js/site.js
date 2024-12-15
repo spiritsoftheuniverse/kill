@@ -47,6 +47,9 @@ $(document).ready(function(){
                         $('#creditbutton').click();
                 }
         })
+        $('#patreonBox').click(function(){
+                location.href="https://patreon.com/michaelsartwork";
+        })
         parseCSV('data/patreon.csv');
         parseCSV('data/supporters.csv');
 });
@@ -120,6 +123,13 @@ function writePatreonList(data)
                                 </tr>
                                
                         `;
+                        var formerhtml = `<table cellpadding="4">
+                        <tr style="text-decoration:underline">
+                                <td><em>Member</em></td>
+                                <td><em>Tier</em></td>
+                        </tr>
+                       
+                `;
         const count = Object.keys(data).length;
         for(let i = 0; i < count; i++) {
                 if(i != 0)
@@ -136,18 +146,45 @@ function writePatreonList(data)
                                         </tr>
                                 `;
                         }
+                        if(patron[3] == "Former patron")
+                        {
+                                var member = patron[0];
+                                var tier = patron[10];
+                                formerhtml += `
+                                        <tr>
+                                                <td>`+member+`</td>
+                                                <td>`+tier+`</td>
+                                        </tr>
+                                `;
+                        }
                 }
         }
         html += `</table>`;
+        formerhtml += `</table>`;
         $('#activePatrons').html(html);
+        $('#formerPatrons').html(formerhtml);
 }
 function writeSupportersList(data)
 {
+        var html = `<table cellpadding="4">
+        <tr style="text-decoration:underline">
+                <td><em>Member</em></td>
+                <td><em>Date</em></td>
+        </tr>
+       
+        `;
         const count = Object.keys(data).length;
         for(let i = 0; i < count; i++) {
                 if(i != 0)
                 {
                         console.log(data[i]);
+                        html += `
+                        <tr>
+                        <td>`+data[i][0]+`</td>
+                        <td>`+data[i][1]+`</td>
+                        </tr>`;
                 }
         }
+        html += `</table>`;
+        $('#supporters').html(html);
 }
