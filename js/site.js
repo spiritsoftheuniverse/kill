@@ -48,6 +48,7 @@ $(document).ready(function(){
                 }
         })
         parseCSV('data/patreon.csv');
+        parseCSV('data/supporters.csv');
 });
 function showPage(page)
 {
@@ -94,11 +95,59 @@ function parseCSV(file) {
               // Use the row index (or any custom logic) as the key
               dataObject[index] = row;
             });
-      
-            console.log(dataObject); // Log the final object
+            switch (file) {
+                case 'data/patreon.csv':	
+                        writePatreonList(dataObject);
+                break;
+                case 'data/supporters.csv':	
+                        writeSupportersList(dataObject);
+                break;
+                default:
+                break;
+            }
           },
           error: function(error) {
             console.error("Error parsing CSV:", error);
           }
         });
       }
+function writePatreonList(data)
+{
+        var html = `<table cellpadding="4">
+                                <tr style="text-decoration:underline">
+                                        <td><em>Member</em></td>
+                                        <td><em>Tier</em></td>
+                                </tr>
+                               
+                        `;
+        const count = Object.keys(data).length;
+        for(let i = 0; i < count; i++) {
+                if(i != 0)
+                {
+                        var patron = data[i];
+                        if(patron[3] == "Active patron")
+                        {
+                                var member = patron[0];
+                                var tier = patron[10];
+                                html += `
+                                        <tr>
+                                                <td class="patronShine">`+member+`</td>
+                                                <td>`+tier+`</td>
+                                        </tr>
+                                `;
+                        }
+                }
+        }
+        html += `</table>`;
+        $('#activePatrons').html(html);
+}
+function writeSupportersList(data)
+{
+        const count = Object.keys(data).length;
+        for(let i = 0; i < count; i++) {
+                if(i != 0)
+                {
+                        console.log(data[i]);
+                }
+        }
+}
