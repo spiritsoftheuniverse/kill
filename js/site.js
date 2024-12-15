@@ -83,26 +83,22 @@ function stopAllAudio() {
         });
 }
 function parseCSV(file) {
-        Papa.parse('https://spiritsoftheuniverse.github.io/kill/'+file, {
-                download: true, // Enables downloading from the given URL
-                header: true,   // Use the first row as headers
-                skipEmptyLines: true, // Skip empty rows
-                complete: function(results) {
-                  const dataObject = {};
-            
-                  // Build the data object
-                  results.data.forEach(row => {
-                    const rowName = row.RowName; // Use "RowName" as the key
-                    if (rowName) {
-                      const { RowName, ...rest } = row; // Exclude RowName from the values
-                      dataObject[rowName] = rest;
-                    }
-                  });
-            
-                  console.log(dataObject); // Log the final object
-                },
-                error: function(error) {
-                  console.error("Error parsing CSV:", error);
-                }
-              });
-}
+        Papa.parse('https://spiritsoftheuniverse.github.io/kill/' + file, {
+          download: true, // Enables downloading from the given URL
+          skipEmptyLines: true, // Skip empty rows
+          complete: function(results) {
+            const dataObject = {};
+      
+            // Build the data object
+            results.data.forEach((row, index) => {
+              // Use the row index (or any custom logic) as the key
+              dataObject[`Row${index}`] = row;
+            });
+      
+            console.log(dataObject); // Log the final object
+          },
+          error: function(error) {
+            console.error("Error parsing CSV:", error);
+          }
+        });
+      }
