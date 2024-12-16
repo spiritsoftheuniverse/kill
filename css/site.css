@@ -59,6 +59,7 @@ a:hover{
 }
 .headerContainer
 {
+        padding:8px;
         padding-top:12px;
         display: flex;           /* Enable flexbox */
         align-items: center;      /* Align items vertically at the center */
@@ -100,6 +101,7 @@ p{
 }
 .content
 {
+        padding:8px;
         display:none;
         margin-top:24px;
 }
