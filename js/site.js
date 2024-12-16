@@ -34,6 +34,13 @@ $(document).ready(function(){
                         $('#shopbutton').click();
                 }
         })
+        
+        $('#shopclick3').click(function(){
+                if(currentpage != 'shop')
+                {
+                        $('#shopbutton').click();
+                }
+        })
         $('#supportclick').click(function(){
                 if(currentpage != 'support')
                 {
@@ -131,12 +138,14 @@ function writePatreonList(data)
                        
                 `;
         const count = Object.keys(data).length;
+        var patroncount = 0;
         for(let i = 0; i < count; i++) {
                 if(i != 0)
                 {
                         var patron = data[i];
                         if(patron[3] == "Active patron")
                         {
+                                patroncount++;
                                 var member = patron[0];
                                 var tier = patron[10];
                                 html += `
@@ -158,6 +167,15 @@ function writePatreonList(data)
                                 `;
                         }
                 }
+        }
+        if(patroncount == 0)
+        {
+                html += `
+                <tr>
+                        <td >-</td>
+                        <td>-</td>
+                </tr>
+        `;
         }
         html += `</table>`;
         formerhtml += `</table>`;
