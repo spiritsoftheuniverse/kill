@@ -12,6 +12,7 @@
         font-style: normal;
     }
 body {
+        margin:0;
         background-color : #111;
         color:#999;
         font-family : "jura";
@@ -58,6 +59,7 @@ a:hover{
 }
 .headerContainer
 {
+        padding-top:12px;
         display: flex;           /* Enable flexbox */
         align-items: center;      /* Align items vertically at the center */
         justify-content: flex-start; /* Ensure header stays aligned to the left */
