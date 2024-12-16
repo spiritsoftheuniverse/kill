@@ -59,6 +59,11 @@ $(document).ready(function(){
         })
         parseCSV('data/patreon.csv');
         parseCSV('data/supporters.csv');
+        $('#thgptslogo').mouseenter(function(){
+                $(this).stop().animate({'opacity': 1}, 500);
+        }).mouseleave(function(){
+                $(this).stop().animate({'opacity': 0.5}, 500);
+        })
 });
 function showPage(page)
 {
