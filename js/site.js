@@ -177,7 +177,6 @@ function writeSupportersList(data)
         for(let i = 0; i < count; i++) {
                 if(i != 0)
                 {
-                        console.log(data[i]);
                         html += `
                         <tr>
                         <td>`+data[i][0]+`</td>
