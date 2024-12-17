@@ -48,15 +48,30 @@ a:visited{
 a:hover{
         color:#FAC;
 }
+.artthumbflex
+{
+        width:200px;
+        display:inline-flex;
+        margin:4px;
+        flex-direction:column;
+        border-radius:4px;
+        overflow:hidden;
+        border:1px solid rgba(200, 200, 200, 0.2);
+}
 .artthumb
 {
-        margin:4px;
-        border-radius:4px;
         cursor:pointer;
+        display:block;
+}
+.artthumbtitle
+{
+        border-top:1px solid rgba(200, 200, 200, 0.2);
+        background-color:rgba(100, 100, 100, 0.2);
+        font-size:80%;
+        padding:4px;
 }
 .phead
 {
-        
         font-family: "komika";
 }
 .arthead

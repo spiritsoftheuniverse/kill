@@ -43,7 +43,10 @@ function writeArtThumbs(category, data)
         const count = Object.keys(data).length;
         var html = '';
         for(let i = 0; i < count; i++) {
-                html += '<a href="images/art/'+category+'/'+data[i][0]+'" data-lightbox="'+category+'" data-title="'+data[i][2]+'"><img class="artthumb" src="images/art/'+category+'/t/'+data[i][0]+'"></a>';
+                html += `<div class="artthumbflex">
+                        <a href="images/art/`+category+`/`+data[i][0]+`" data-lightbox="`+category+`" data-title="`+data[i][2]+`"><img class="artthumb" src="images/art/`+category+`/t/`+data[i][0]+`"></a>
+                        <div class="artthumbtitle">`+data[i][1]+`</div>
+                </div>`;
         }
         $('.artthumbbox[data-folder="'+category+'"] .artthumbcontainer').html(html);
 }
