@@ -1,50 +1,67 @@
-$(document).ready(function(){
-        var artcategorylist = ['categories', 'art_today', 'art_college', 'art_darkness', 'art_dreamstrata', 'art_earlyyears', 'art_lost', ];
-        for(let i = 0; i < artcategorylist.length; i++) {
-                parseArtCSV(artcategorylist[i]);
-        }
-})
-function parseArtCSV(file) {
-        Papa.parse('https://spiritsoftheuniverse.github.io/kill/data/' + file+'.csv', {
-          download: true, // Enables downloading from the given URL
-          skipEmptyLines: true, // Skip empty rows
-          complete: function(results) {
-            const dataObject = {};
+$(document).ready(async function () {
+        const artcategorylist = [
+          'categories', 
+          'art_today', 
+          'art_college', 
+          'art_darkness', 
+          'art_dreamstrata', 
+          'art_earlyyears', 
+          'art_lost'
+        ];
       
-            // Build the data object
-            results.data.forEach((row, index) => {
-              // Use the row index (or any custom logic) as the key
-              dataObject[index] = row;
-            });
-            switch (file) {
-                case 'categories':	
-                        writeCategories(dataObject);
-                break;
-                case 'art_today' : 
-                        writeArtThumbs('today', dataObject);
-                break;
-                case 'art_college' : 
-                        writeArtThumbs('college', dataObject);
-                break;
-                case 'art_darkness' : 
-                        writeArtThumbs('darkness', dataObject);
-                break;
-                case 'art_dreamstrata' : 
-                        writeArtThumbs('dreamstrata', dataObject);
-                break;
-                case 'art_earlyyears' : 
-                        writeArtThumbs('earlyyears', dataObject);
-                break;
-                case 'art_lost' : 
-                        writeArtThumbs('lost', dataObject);
-                break;
-                default:
-                break;
-            }
-          },
-          error: function(error) {
-            console.error("Error parsing CSV:", error);
+        for (const file of artcategorylist) {
+          try {
+            await parseArtCSV(file); // Wait for each file to parse
+          } catch (error) {
+            console.error(`Failed to parse file: ${file}`, error);
           }
+        }
+      });
+function parseArtCSV(file) {
+        return new Promise((resolve, reject) => {
+          Papa.parse(`https://spiritsoftheuniverse.github.io/kill/data/${file}.csv`, {
+            download: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+              const dataObject = {};
+              
+              results.data.forEach((row, index) => {
+                dataObject[index] = row;
+              });
+      
+              switch (file) {
+                case 'categories':	
+                  writeCategories(dataObject);
+                  break;
+                case 'art_today': 
+                  writeArtThumbs('today', dataObject);
+                  break;
+                case 'art_college': 
+                  writeArtThumbs('college', dataObject);
+                  break;
+                case 'art_darkness': 
+                  writeArtThumbs('darkness', dataObject);
+                  break;
+                case 'art_dreamstrata': 
+                  writeArtThumbs('dreamstrata', dataObject);
+                  break;
+                case 'art_earlyyears': 
+                  writeArtThumbs('earlyyears', dataObject);
+                  break;
+                case 'art_lost': 
+                  writeArtThumbs('lost', dataObject);
+                  break;
+                default:
+                  break;
+              }
+      
+              resolve(); // Mark this file as successfully parsed
+            },
+            error: function (error) {
+              console.error("Error parsing CSV:", error);
+              reject(error); // Mark this file as failed
+            }
+          });
         });
       }
 function writeArtThumbs(category, data)
