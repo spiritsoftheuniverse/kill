@@ -48,6 +48,11 @@ a:visited{
 a:hover{
         color:#FAC;
 }
+.artthumb
+{
+        border-radius:4px;
+        cursor:pointer;
+}
 .phead
 {
         

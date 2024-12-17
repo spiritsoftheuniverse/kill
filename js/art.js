@@ -1,6 +1,7 @@
 $(document).ready(function(){
         parseArtCSV('categories');
         parseArtCSV('art_today');
+        parseArtCSV('art_college');
 })
 function parseArtCSV(file) {
         Papa.parse('https://spiritsoftheuniverse.github.io/kill/data/' + file+'.csv', {
@@ -21,6 +22,9 @@ function parseArtCSV(file) {
                 case 'art_today' : 
                         writeArtThumbs('today', dataObject);
                 break;
+                case 'art_college' : 
+                        writeArtThumbs('college', dataObject);
+                break;
                 default:
                 break;
             }
@@ -35,7 +39,7 @@ function writeArtThumbs(category, data)
         const count = Object.keys(data).length;
         var html = '';
         for(let i = 0; i < count; i++) {
-                html += '<img src="images/art/'+data[0][0]+'t/">';
+                html += '<a href="images/art/'+category+'/'+data[0][0]+'" data-lightbox="'+category+'" data-title="'+data[0][2]+'"><img class="artthumb" src="images/art/'+category+'/t/'+data[0][0]+'"></a>';
         }
         console.log(html);
         $('.artthumbbox[data-folder="'+category+'"] .artthumbcontainer').html(html);
