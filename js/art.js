@@ -29,6 +29,15 @@ function parseArtCSV(file) {
                 case 'art_darkness' : 
                         writeArtThumbs('darkness', dataObject);
                 break;
+                case 'art_dreamstrata' : 
+                        writeArtThumbs('dreamstrata', dataObject);
+                break;
+                case 'art_earlyyears' : 
+                        writeArtThumbs('earlyyears', dataObject);
+                break;
+                case 'art_lost' : 
+                        writeArtThumbs('lost', dataObject);
+                break;
                 default:
                 break;
             }
@@ -76,5 +85,5 @@ function showArtThumbs(category)
         $('.artthumbbox').css('display', 'none');
         $('.arthead').css('color', 'inherit');
         $('.arthead[data-folder="'+category+'"]').css('color', '#FA0');
-        $('.artthumbbox[data-folder="'+category+'"]').css('display', 'block');
+        $('.artthumbbox[data-folder="'+category+'"]').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
 }
