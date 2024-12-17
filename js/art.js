@@ -2,6 +2,7 @@ $(document).ready(function(){
         parseArtCSV('categories');
         parseArtCSV('art_today');
         parseArtCSV('art_college');
+        parseArtCSV('art_darkness');
 })
 function parseArtCSV(file) {
         Papa.parse('https://spiritsoftheuniverse.github.io/kill/data/' + file+'.csv', {
@@ -25,7 +26,6 @@ function parseArtCSV(file) {
                 case 'art_college' : 
                         writeArtThumbs('college', dataObject);
                 break;
-                
                 case 'art_darkness' : 
                         writeArtThumbs('darkness', dataObject);
                 break;
