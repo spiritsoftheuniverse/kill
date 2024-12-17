@@ -1,8 +1,8 @@
 $(document).ready(function(){
-        parseArtCSV('categories');
-        parseArtCSV('art_today');
-        parseArtCSV('art_college');
-        parseArtCSV('art_darkness');
+        var artcategorylist = ['categories', 'art_today', 'art_college', 'art_darkness', 'art_dreamstrata', 'art_earlyyears', 'art_lost', ];
+        for(let i = 0; i < artcategorylist.length; i++) {
+                parseArtCSV(artcategorylist[i]);
+        }
 })
 function parseArtCSV(file) {
         Papa.parse('https://spiritsoftheuniverse.github.io/kill/data/' + file+'.csv', {

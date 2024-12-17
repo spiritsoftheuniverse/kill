@@ -60,6 +60,7 @@ a:hover{
 }
 .artthumb
 {
+        max-width:100%;
         cursor:pointer;
         display:block;
 }
@@ -257,5 +258,36 @@ p{
         .donationsPanel
         {
                 flex-direction: column;
+        }
+}
+
+@media (max-width: 460px) {
+        
+        .artthumbflex
+        {
+                width:150px;
+        }
+}
+
+@media (max-width: 460px) {
+        
+        .artthumbflex
+        {
+                width:150px;
+        }
+}
+@media (max-width: 350px) {
+        
+        .artthumbflex
+        {
+                width:100px;
+        }
+}
+
+@media (max-width: 250px) {
+        
+        .artthumbflex
+        {
+                width:75px;
         }
 }
