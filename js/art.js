@@ -25,6 +25,10 @@ function parseArtCSV(file) {
                 case 'art_college' : 
                         writeArtThumbs('college', dataObject);
                 break;
+                
+                case 'art_darkness' : 
+                        writeArtThumbs('darkness', dataObject);
+                break;
                 default:
                 break;
             }
