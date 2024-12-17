@@ -1,7 +1,7 @@
 var pages = ['home','art','wpaper','shop','support', 'credit'];
 var currentpage=  'home';
 
-$(document).ready(function(){
+$(document).ready(async function(){
         const currentYear = new Date().getFullYear();
         $('.footerdate').html(currentYear);
 
@@ -57,13 +57,24 @@ $(document).ready(function(){
         $('#patreonBox').click(function(){
                 location.href="https://patreon.com/michaelsartwork";
         })
-        parseCSV('data/patreon.csv');
-        parseCSV('data/supporters.csv');
         $('#thgptslogo').mouseenter(function(){
                 $(this).stop().animate({'opacity': 1}, 500);
         }).mouseleave(function(){
                 $(this).stop().animate({'opacity': 0.5}, 500);
         })
+        
+        parseCSV('data/patreon.csv');
+        parseCSV('data/supporters.csv');
+
+        const files = ['data/patreon.csv', 'data/supporters.csv'];
+
+        for (const file of files) {
+                try {
+                        await parseCSV(file); // Wait for each file to finish processing
+                } catch (error) {
+                console.error(`Failed to process file: ${file}`, error);
+                }
+        }
 });
 function showPage(page)
 {
@@ -99,31 +110,38 @@ function stopAllAudio() {
         });
 }
 function parseCSV(file) {
-        Papa.parse('https://spiritsoftheuniverse.github.io/kill/' + file, {
-          download: true, // Enables downloading from the given URL
-          skipEmptyLines: true, // Skip empty rows
-          complete: function(results) {
-            const dataObject = {};
+        return new Promise((resolve, reject) => {
+          Papa.parse('https://spiritsoftheuniverse.github.io/kill/' + file, {
+            download: true, // Enables downloading from the given URL
+            skipEmptyLines: true, // Skip empty rows
+            complete: function (results) {
+              const dataObject = {};
       
-            // Build the data object
-            results.data.forEach((row, index) => {
-              // Use the row index (or any custom logic) as the key
-              dataObject[index] = row;
-            });
-            switch (file) {
+              // Build the data object
+              results.data.forEach((row, index) => {
+                // Use the row index (or any custom logic) as the key
+                dataObject[index] = row;
+              });
+      
+              // Perform actions based on the file
+              switch (file) {
                 case 'data/patreon.csv':	
-                        writePatreonList(dataObject);
-                break;
+                  writePatreonList(dataObject);
+                  break;
                 case 'data/supporters.csv':	
-                        writeSupportersList(dataObject);
-                break;
+                  writeSupportersList(dataObject);
+                  break;
                 default:
-                break;
+                  break;
+              }
+      
+              resolve(); // Signal that the file was successfully processed
+            },
+            error: function (error) {
+              console.error("Error parsing CSV:", error);
+              reject(error); // Signal a failure to process the file
             }
-          },
-          error: function(error) {
-            console.error("Error parsing CSV:", error);
-          }
+          });
         });
       }
 function writePatreonList(data)
