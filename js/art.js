@@ -41,13 +41,11 @@ function writeArtThumbs(category, data)
         for(let i = 0; i < count; i++) {
                 html += '<a href="images/art/'+category+'/'+data[0][0]+'" data-lightbox="'+category+'" data-title="'+data[0][2]+'"><img class="artthumb" src="images/art/'+category+'/t/'+data[0][0]+'"></a>';
         }
-        console.log(html);
         $('.artthumbbox[data-folder="'+category+'"] .artthumbcontainer').html(html);
 }
 function writeCategories(data)
 {
         const count = Object.keys(data).length;
-        console.log(data);
         var html = '';
         for(let i = 0; i < count; i++) {
                 var description = '';
