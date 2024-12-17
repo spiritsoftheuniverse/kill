@@ -62,9 +62,6 @@ $(document).ready(async function(){
         }).mouseleave(function(){
                 $(this).stop().animate({'opacity': 0.5}, 500);
         })
-        
-        parseCSV('data/patreon.csv');
-        parseCSV('data/supporters.csv');
 
         const files = ['data/patreon.csv', 'data/supporters.csv'];
 
