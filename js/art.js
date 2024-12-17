@@ -39,7 +39,7 @@ function writeArtThumbs(category, data)
         const count = Object.keys(data).length;
         var html = '';
         for(let i = 0; i < count; i++) {
-                html += '<a href="images/art/'+category+'/'+data[0][0]+'" data-lightbox="'+category+'" data-title="'+data[0][2]+'"><img class="artthumb" src="images/art/'+category+'/t/'+data[0][0]+'"></a>';
+                html += '<a href="images/art/'+category+'/'+data[i][0]+'" data-lightbox="'+category+'" data-title="'+data[i][2]+'"><img class="artthumb" src="images/art/'+category+'/t/'+data[i][0]+'"></a>';
         }
         $('.artthumbbox[data-folder="'+category+'"] .artthumbcontainer').html(html);
 }
@@ -69,5 +69,5 @@ function showArtThumbs(category)
         $('.artthumbbox').css('display', 'none');
         $('.arthead').css('color', 'inherit');
         $('.arthead[data-folder="'+category+'"]').css('color', '#FA0');
-        $('.artthumbbox[data-folder="'+category+'"]').css('display', 'flex');
+        $('.artthumbbox[data-folder="'+category+'"]').css('display', 'block');
 }
