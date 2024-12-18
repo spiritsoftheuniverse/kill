@@ -268,6 +268,44 @@ p{
         border-top:1px solid rgba(200,200,200,0.1);
         font-size:90%;
 }
+.shopitemcontainer
+{
+        display:flex;
+}
+.shopitemimagebox
+{
+        width:calc(50% - 48px);
+        padding:24px;
+}
+.returnshopbox
+{
+        font-size:125%;
+        margin-bottom:12px;       
+}
+.shopitemdata
+{
+        width:calc(50% - 48px);
+        padding:24px;
+}
+.shopitemimage
+{
+        max-width:100%;
+        border-radius:4px;
+}
+.shopitemtitle
+{
+        font-family:"komika";
+        font-size:110%;
+}
+.shopitemdescription
+{
+        margin-top:12px;
+        color:#888;
+}
+.tdr
+{
+        text-align:right;
+}
 @keyframes scrollUpright {
         from {
             background-position-y: 0;
@@ -283,6 +321,10 @@ p{
         {
                 display: flex;
                 gap:0px;
+                flex-direction: column;
+        }
+        .shopitemcontainer
+        {
                 flex-direction: column;
         }
 }

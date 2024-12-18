@@ -75,6 +75,7 @@ $(document).ready(async function(){
 });
 function showPage(page)
 {
+        $('#shopitemview').css('display', 'none');
         for(let i = 0; i < pages.length; i++) {
             $('#'+pages[i]+'page').css(
                 {
@@ -234,4 +235,9 @@ function writeSupportersList(data)
         }
         html += `</table>`;
         $('#supporters').html(html);
+}
+
+function capitalize(str) {
+        if (!str) return ""; // Handle empty or null strings
+        return str.charAt(0).toUpperCase() + str.slice(1);
 }

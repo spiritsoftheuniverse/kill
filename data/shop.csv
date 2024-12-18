@@ -1,4 +1,4 @@
-title,category,edition,price,us,can,int,status,file1,file2,file3,description
-Wretch,art,20,15,4,6,10,cs,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
-Wretch,art,20,15,4,6,10,a,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
-Wretch,art,20,15,4,6,10,so,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
+title,category,edition,price,us,can,int,dimensions,status,file1,file2,file3,description
+Wretch,art,20,15,4,6,10,6 x 9&quot;,cs,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
+Wretch,art,20,15,4,6,10,6 x 9&quot;,a,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
+Wretch,art,20,15,4,6,10,6 x 9&quot;,so,wretch.jpg,wretch_back.jpg,,Art Print 1 of 3 from the series Wherever We May Roam.
