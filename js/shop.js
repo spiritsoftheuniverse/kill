@@ -45,6 +45,7 @@ function writeShopData(data)
                 var category = d[1];
                 var status;
                 var thumbstyle = '';
+                var clickable="1"
                 switch (d[7]) {
                         case 'a':
                                 status = '<span style="color:#0F0;">Available</span>';
@@ -52,6 +53,7 @@ function writeShopData(data)
                         case 'cs':	
                                 status = '<span style="color:#0CF;">Coming Soon!</span>';
                                 thumbstyle = 'style="cursor:default"';
+                                clickable="0";
                         break;
                         case 'so':
                                 status = '<span style="color:#FC0;">Sold Out</span>';
@@ -59,8 +61,8 @@ function writeShopData(data)
                 }
                 
                 html += `<div class="shopthumbflex">
-                                <img class="artthumb" `+thumbstyle+` data-index="`+i+`" src="images/shop/`+category+`/t/`+d[8]+`">
-                        <div class="artthumbtitle"><div>`+d[0]+`</div><div class="shopstatus">`+status+`</div></div>
+                                <img class="shopthumb" `+thumbstyle+` data-clickable="`+clickable+`" data-index="`+i+`" src="images/shop/`+category+`/t/`+d[8]+`">
+                        <div class="shopthumbtitle"><div>`+d[0]+`</div><div class="shopstatus">`+status+`</div></div>
                 </div>`;
             }
         }
