@@ -91,8 +91,8 @@ function showShopItem(index)
         $('#shoppage').css('display', 'none');
         $('#shopitemview').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
         $('.shopitemtitle').html(data[0]);
-        $('#shopitemimagelink1').attr('href', 'images/shop/'+category+'/'+data[8]);
-        $('#shopitemimage1').attr('src', 'images/shop/'+category+'/'+data[8]);
+        $('#shopitemimagelink1').attr('href', 'images/shop/'+category+'/'+data[9]);
+        $('#shopitemimage1').attr('src', 'images/shop/'+category+'/'+data[9]);
         if(data[10] != '')
         {
                 $('#shopitemimagelink2').attr('href', 'images/shop/'+category+'/'+data[10]);
