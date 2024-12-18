@@ -148,35 +148,32 @@ function showShopItem(index)
         $('.purchasePrice').html('$'+parseFloat(data[3]).toFixed(2));
         var purchasetable = '';
         var total;
-        if(data[4] != '')
-        {
-                total = (parseFloat(data[4]) + parseFloat(data[3])).toFixed(2);
-                purchasetable += `<tr>
-                        <td class="shippingtd">U.S.</td>
-                        <td class="shippingtd">$`+parseInt(data[4]).toFixed(2)+`</td>
-                        <td class="totaltd">$`+total+`</td>
-                        <td><div class="purchaseButton">Purchase</div></td>
-                </tr>`;
-        }
-        if(data[5] != '')
-        {
-                total = (parseFloat(data[5]) + parseFloat(data[3])).toFixed(2);
-                purchasetable += `<tr>
-                        <td class="shippingtd">CAN</td>
-                        <td class="shippingtd">$`+parseInt(data[5]).toFixed(2)+`</td>
-                        <td class="totaltd">$`+total+`</td>
-                        <td><div class="purchaseButton">Purchase</div></td>
-                </tr>`;
-        }
-        if(data[6] != '')
-        {
-                total = (parseFloat(data[6]) + parseFloat(data[3])).toFixed(2);
-                purchasetable += `<tr>
-                        <td class="shippingtd">INT</td>
-                        <td class="shippingtd">$`+parseInt(data[6]).toFixed(2)+`</td>
-                        <td class="totaltd">$`+total+`</td>
-                        <td><div class="purchaseButton">Purchase</div></td>
-                </tr>`;
+        var shipinfo = [
+                {
+                        'index' : 4,
+                        'region' : 'U.S.',
+                },
+                {
+                        'index' : 5,
+                        'region' : 'CAN',
+                },
+                {
+                        'index' : 6,
+                        'region' : 'INT',
+                }
+        ];
+        for(let i = 0; i < shipinfo.length; i++) {
+                var x = shipinfo[i];
+                if(data[x['index']] != '')
+                        {
+                                total = (parseFloat(data[x['index']]) + parseFloat(data[3])).toFixed(2);
+                                purchasetable += `<tr>
+                                        <td class="shippingtd">`+x['region']+`</td>
+                                        <td class="shippingtd">$`+parseInt(data[x['index']]).toFixed(2)+`</td>
+                                        <td class="totaltd">$`+total+`</td>
+                                        <td><div class="purchaseButton">Purchase</div></td>
+                                </tr>`;
+                        }
         }
         if(purchasetable != '')
         {
@@ -190,4 +187,14 @@ function showShopItem(index)
                 ` +purchasetable;
         }
         $('#purchasetable').html(purchasetable);
+        var pb = 0;
+        for(let i = 12; i < 15; i++) {
+                if(data[i] != '')
+                {
+                        $('.purchaseButton:eq('+pb+')').click(function(){
+                                window.open(data[i], "_blank");
+                        })
+                        pb++;
+                }
+        }
 }
