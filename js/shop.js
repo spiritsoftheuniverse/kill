@@ -56,12 +56,12 @@ function writeShopData(data)
                                 clickable="0";
                         break;
                         case 'so':
-                                status = '<span style="color:#FC0;">Sold Out</span>';
+                                status = '<span style="color:#FAC;">Sold Out</span>';
                         break;
                 }
                 
                 html += `<div class="shopthumbflex">
-                                <img class="shopthumb" `+thumbstyle+` data-clickable="`+clickable+`" data-index="`+i+`" src="images/shop/`+category+`/t/`+d[8]+`">
+                                <img class="shopthumb" `+thumbstyle+` data-clickable="`+clickable+`" data-status="`+d[7]+`" data-index="`+i+`" src="images/shop/`+category+`/t/`+d[8]+`">
                         <div class="shopthumbtitle"><div>`+d[0]+`</div><div class="shopstatus">`+status+`</div></div>
                 </div>`;
             }
