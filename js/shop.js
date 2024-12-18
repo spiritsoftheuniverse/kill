@@ -99,7 +99,7 @@ function setshopthumbindex(index)
 var thumbindex = 1;
 function showShopItem(index)
 {
-        thumbindex=1;
+        setshopthumbindex(1)
         index = parseInt(index);
         var data = shopdata[index];
         var category = data[1];
