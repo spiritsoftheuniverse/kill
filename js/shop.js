@@ -2,7 +2,8 @@ var shopcreated=false;
 var shopdata;
 $(document).ready(function(){
         $('#returnshopbutton').click(function(){
-                $('#shopbutton').click();
+                $('#shopitemview').css('display', 'none');
+                $('#shoppage').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
         })
 })
 async function createShopPage()
@@ -12,7 +13,6 @@ async function createShopPage()
                 return;
         }
         shopcreated=true;
-        console.log('shop page');
         parseShopCSV('shop');
 }
 function parseShopCSV(file) {
@@ -109,18 +109,85 @@ function showShopItem(index)
         {
                 $('#shopitemimagelink3').removeAttr('data-lightbox');  
         }
-        $('.shopitemdescription').html(data[12]);
+        $('.shopitemdescription').html(data[15]);
         var shoptable = '';
         shoptable += `<tr>
-                <td class="tdr">Category</td>
+                <td class="tdr">Category:</td>
                 <td>`+capitalize(category)+`</td>
         </tr>`;
+        if(data[7] != '')
+        {
+                shoptable += `<tr>
+                        <td class="tdr">Size:</td>
+                        <td>`+data[7]+`</td>
+                </tr>`;
+        }
         if(data[2] != '')
         {
                 shoptable += `<tr>
-                        <td class="tdr">Edition</td>
+                        <td class="tdr">Edition:</td>
                         <td>`+data[2]+`</td>
                 </tr>`;
         }
+        var status = '';
+        switch (data[8]) {
+                case 'a':
+                        status = '<span style="color:#0F0;">Available</span>';
+                        $('#purchasetable').css('display', 'block');
+                break;
+                case 'so':
+                        status = '<span style="color:#FAC;">Sold Out</span>';
+                        $('#purchasetable').css('display', 'none');
+                break;
+        }
+        shoptable += `<tr>
+                        <td class="tdr">Availability:</td>
+                        <td>`+status+`</td>
+                </tr>`;
         $('#shopdatatable').html(shoptable);
+        $('.purchasePrice').html('$'+parseFloat(data[3]).toFixed(2));
+        var purchasetable = '';
+        var total;
+        if(data[4] != '')
+        {
+                total = (parseFloat(data[4]) + parseFloat(data[3])).toFixed(2);
+                purchasetable += `<tr>
+                        <td class="shippingtd">U.S.</td>
+                        <td class="shippingtd">$`+parseInt(data[4]).toFixed(2)+`</td>
+                        <td class="totaltd">$`+total+`</td>
+                        <td><div class="purchaseButton">Purchase</div></td>
+                </tr>`;
+        }
+        if(data[5] != '')
+        {
+                total = (parseFloat(data[5]) + parseFloat(data[3])).toFixed(2);
+                purchasetable += `<tr>
+                        <td class="shippingtd">CAN</td>
+                        <td class="shippingtd">$`+parseInt(data[5]).toFixed(2)+`</td>
+                        <td class="totaltd">$`+total+`</td>
+                        <td><div class="purchaseButton">Purchase</div></td>
+                </tr>`;
+        }
+        if(data[6] != '')
+        {
+                total = (parseFloat(data[6]) + parseFloat(data[3])).toFixed(2);
+                purchasetable += `<tr>
+                        <td class="shippingtd">INT</td>
+                        <td class="shippingtd">$`+parseInt(data[6]).toFixed(2)+`</td>
+                        <td class="totaltd">$`+total+`</td>
+                        <td><div class="purchaseButton">Purchase</div></td>
+                </tr>`;
+        }
+        if(purchasetable != '')
+        {
+                purchasetable = `
+                        '<tr>
+                                <td>Region</td>
+                                <td>Shipping</td>
+                                <td>Total</td>
+                                <td></td>
+                        </tr>'
+                ` +purchasetable;
+        }
+        $('#purchasetable').html(purchasetable);
 }

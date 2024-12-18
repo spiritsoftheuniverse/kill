@@ -18,6 +18,8 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/art.css">
     <script src="js/papaparse.min.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/site.js"></script>
@@ -193,7 +195,7 @@
                 <div id="shopitems"></div>
         </div>
         <div class="content" id="shopitemview" style="display:none;">
-                <div class="returnshopbox"><a href="javascript:void;" id="returnshopbutton">&larr; Return to Shop</a></div>
+                <div class="returnshopbox"><a href="javascript:void(0);" id="returnshopbutton">&larr; Return to Shop</a></div>
                 <div class="shopitemcontainer">
                         <div class="shopitemimagebox">
                                 <a href="" data-lightbox="shopitemview" id="shopitemimagelink1"><img id="shopitemimage1" class="shopitemimage"></a>
@@ -202,10 +204,18 @@
                         </div>
                         <div class="shopitemdata">
                                 <div class="shopitemtitle"></div>
-                                <div class="shopitemdescription"></div>
-                                <table cellpadding="4" cellspacing="4" id="shopdatatable">
+                                <div class="purchaseTableBox">
+                                        <div class="purchasePrice"></div>
+                                        <table cellpadding="4" cellspacing="4" id="purchasetable">
 
-                                </table>
+                                        </table>
+                                </div>
+                                <div class="shopitemdescription"></div>
+                                <div class="shoptableBox">
+                                        <table cellpadding="4" cellspacing="4" id="shopdatatable">
+
+                                        </table>
+                                </div>
                         </div>
                 </div>
         </div>
