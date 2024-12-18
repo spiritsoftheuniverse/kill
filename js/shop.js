@@ -187,7 +187,7 @@ function showShopItem(index)
                                 total = (parseFloat(data[x['index']]) + parseFloat(data[3])).toFixed(2);
                                 purchasetable += `<tr>
                                         <td class="shippingtd">`+x['region']+`</td>
-                                        <td class="shippingtd">$`+parseInt(data[x['index']]).toFixed(2)+`</td>
+                                        <td class="shippingtd" style="text-align:right;">$`+parseInt(data[x['index']]).toFixed(2)+` &rarr;</td>
                                         <td class="totaltd">$`+total+`</td>
                                         <td><div class="purchaseButton">Purchase</div></td>
                                 </tr>`;
