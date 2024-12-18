@@ -93,22 +93,40 @@ function showShopItem(index)
         $('.shopitemtitle').html(data[0]);
         $('#shopitemimagelink1').attr('href', 'images/shop/'+category+'/'+data[9]);
         $('#shopitemimage1').attr('src', 'images/shop/'+category+'/'+data[9]);
+        $('#shopitemthumb1').attr('src', 'images/shop/'+category+'/t/'+data[9]);
+        var sthumb2=true, sthumb3=true;
         if(data[10] != '')
         {
                 $('#shopitemimagelink2').attr('href', 'images/shop/'+category+'/'+data[10]);
+                $('#shopitemthumb2').attr('src', 'images/shop/'+category+'/t/'+data[10]).css('display', 'block');
         }
         else
         {
                 $('#shopitemimagelink2').removeAttr('data-lightbox'); 
+                $('#shopitemthumb2').css('display', 'none'); 
+                sthumb2=false
         }
         if(data[11] != '')
         {
-                $('#shopitemimagelink2').attr('href', 'images/shop/'+category+'/'+data[11]);
+                $('#shopitemimagelink3').attr('href', 'images/shop/'+category+'/'+data[11]);
+                $('#shopitemthumb3').attr('src', 'images/shop/'+category+'/t/'+data[11]).css('display', 'block');
         }
         else
         {
-                $('#shopitemimagelink3').removeAttr('data-lightbox');  
+                $('#shopitemimagelink3').removeAttr('data-lightbox');
+                $('#shopitemthumb3').css('display', 'none');
+                sthumb3=false; 
         }
+        if(!sthumb2 && !sthumb3)
+        {
+                $('#shopitemthumb1').css('display', 'none');
+        }
+        else
+        {
+                $('#shopitemthumb1').css('display', 'block');
+        }
+
+
         $('.shopitemdescription').html(data[15]);
         var shoptable = '';
         shoptable += `<tr>
