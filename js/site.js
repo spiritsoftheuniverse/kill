@@ -93,6 +93,16 @@ function showPage(page)
                 'pointer-events' : 'none',
                 'color' : '#F00',
         });
+        switch (page) {
+                case 'art':
+                        createArtPage()	
+                break;
+                case 'shop' : 
+                        createShopPage();
+                break;
+                default:
+                break;
+        }
         currentpage = page;
         stopAllAudio()
 }

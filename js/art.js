@@ -1,22 +1,29 @@
-$(document).ready(async function () {
-        const artcategorylist = [
-          'categories', 
-          'art_today', 
-          'art_college', 
-          'art_darkness', 
-          'art_dreamstrata', 
-          'art_earlyyears', 
-          'art_lost'
-        ];
-      
-        for (const file of artcategorylist) {
-          try {
-            await parseArtCSV(file); // Wait for each file to parse
-          } catch (error) {
-            console.error(`Failed to parse file: ${file}`, error);
-          }
+var artcreated = false;
+async function createArtPage()
+{
+        if(artcreated)
+        {
+                return;
         }
-      });
+        artcreated=true;
+        const artcategorylist = [
+                'categories', 
+                'art_today', 
+                'art_college', 
+                'art_darkness', 
+                'art_dreamstrata', 
+                'art_earlyyears', 
+                'art_lost'
+              ];
+            
+              for (const file of artcategorylist) {
+                try {
+                  await parseArtCSV(file); // Wait for each file to parse
+                } catch (error) {
+                  console.error(`Failed to parse file: ${file}`, error);
+                }
+              }
+}
 function parseArtCSV(file) {
         return new Promise((resolve, reject) => {
           Papa.parse(`https://spiritsoftheuniverse.github.io/kill/data/${file}.csv`, {
@@ -69,8 +76,13 @@ function writeArtThumbs(category, data)
         const count = Object.keys(data).length;
         var html = '';
         for(let i = 0; i < count; i++) {
+                var description  = '';
+                if(data[i][2] != '')
+                {
+                        description  = ' - '+data[i][2]
+                }
                 html += `<div class="artthumbflex">
-                        <a href="images/art/`+category+`/`+data[i][0]+`" data-lightbox="`+category+`" data-title="`+data[i][2]+`"><img class="artthumb" src="images/art/`+category+`/t/`+data[i][0]+`"></a>
+                        <a href="images/art/`+category+`/`+data[i][0]+`" data-lightbox="`+category+`" data-title="`+data[i][1]+description+`"><img class="artthumb" src="images/art/`+category+`/t/`+data[i][0]+`"></a>
                         <div class="artthumbtitle">`+data[i][1]+`</div>
                 </div>`;
         }
