@@ -82,8 +82,24 @@ function writeShopData(data)
                 }
         })
 }
+function setshopthumbindex(index)
+{
+        if (thumbindex == index)
+        {
+                return;
+        }
+        thumbindex = index;
+        for(let i = 1; i < 4; i++) {
+                $('#shopitemthumb'+i).css('border', '1px solid rgba(200,200,200,0.5)');
+                $('#shopitemimage'+i).css('display', 'none');
+        }
+        $('#shopitemthumb'+index).css('border', '1px solid #FFF');
+        $('#shopitemimage'+index).css('display', 'inline');
+}
+var thumbindex = 1;
 function showShopItem(index)
 {
+        thumbindex=1;
         index = parseInt(index);
         var data = shopdata[index];
         var category = data[1];
@@ -93,23 +109,31 @@ function showShopItem(index)
         $('.shopitemtitle').html(data[0]);
         $('#shopitemimagelink1').attr('href', 'images/shop/'+category+'/'+data[9]);
         $('#shopitemimage1').attr('src', 'images/shop/'+category+'/'+data[9]);
-        $('#shopitemthumb1').attr('src', 'images/shop/'+category+'/t/'+data[9]);
+        $('#shopitemthumb1').attr('src', 'images/shop/'+category+'/t/'+data[9]).css({'border' : '1px solid #FFF',}).off('click').click(function(){
+                setshopthumbindex(1);
+        });
         var sthumb2=true, sthumb3=true;
         if(data[10] != '')
         {
                 $('#shopitemimagelink2').attr('href', 'images/shop/'+category+'/'+data[10]);
-                $('#shopitemthumb2').attr('src', 'images/shop/'+category+'/t/'+data[10]).css('display', 'block');
+                $('#shopitemimage2').attr('src', 'images/shop/'+category+'/'+data[10]);
+                $('#shopitemthumb2').attr('src', 'images/shop/'+category+'/t/'+data[10]).css('display', 'block').off('click').click(function(){
+                        setshopthumbindex(2);
+                });
         }
         else
         {
                 $('#shopitemimagelink2').removeAttr('data-lightbox'); 
-                $('#shopitemthumb2').css('display', 'none'); 
+                $('#shopitemthumb2').css('display', 'none');
                 sthumb2=false
         }
         if(data[11] != '')
         {
                 $('#shopitemimagelink3').attr('href', 'images/shop/'+category+'/'+data[11]);
-                $('#shopitemthumb3').attr('src', 'images/shop/'+category+'/t/'+data[11]).css('display', 'block');
+                $('#shopitemimage3').attr('src', 'images/shop/'+category+'/'+data[11]);
+                $('#shopitemthumb3').attr('src', 'images/shop/'+category+'/t/'+data[11]).css('display', 'block').off('click').click(function(){
+                        setshopthumbindex(3);
+                });
         }
         else
         {
