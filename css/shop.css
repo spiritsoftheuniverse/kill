@@ -123,13 +123,17 @@
 }
 .shopitemthumbbox
 {
+        margin-top:8px;
         display:flex; flex-direction:row;
+        justify-content:center;
+        align-items:center;
         gap:12px;
 }
 .shopitemthumb
 {
         max-width:100%;
         border:1px solid rgba(200, 200, 200, 0.5);
+        border-radius:4px;
 }
 @media (max-width: 800px) {
         .shopitemimagebox
