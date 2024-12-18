@@ -1,4 +1,5 @@
 var shopcreated=false;
+var shopdata;
 async function createShopPage()
 {
         if(shopcreated)
@@ -20,8 +21,8 @@ function parseShopCSV(file) {
               results.data.forEach((row, index) => {
                 dataObject[index] = row;
               });
-              console.log(dataObject);
-      
+              shopdata = dataObject;
+              writeShopData(shopdata);
               resolve(); // Mark this file as successfully parsed
             },
             error: function (error) {
@@ -30,4 +31,38 @@ function parseShopCSV(file) {
             }
           });
         });
-      }
+}
+function writeShopData(data)
+{
+        console.log(data);
+        var html = '';
+        const count = Object.keys(data).length;
+        for(let i = 0; i < count; i++) {
+            if(i != 0)
+            {
+                var d = data[i];
+                console.log(d);
+                var category = d[1];
+                var status;
+                var thumbstyle = '';
+                switch (d[7]) {
+                        case 'a':
+                                status = '<span style="color:#0F0;">Available</span>';
+                        break;
+                        case 'cs':	
+                                status = '<span style="color:#0CF;">Coming Soon!</span>';
+                                thumbstyle = 'style="cursor:default"';
+                        break;
+                        case 'so':
+                                status = '<span style="color:#FC0;">Sold Out</span>';
+                        break;
+                }
+                
+                html += `<div class="shopthumbflex">
+                                <img class="artthumb" `+thumbstyle+` data-index="`+i+`" src="images/shop/`+category+`/t/`+d[8]+`">
+                        <div class="artthumbtitle"><div>`+d[0]+`</div><div class="shopstatus">`+status+`</div></div>
+                </div>`;
+            }
+        }
+        $('#shopitems').html(html);
+}
