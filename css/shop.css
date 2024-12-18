@@ -126,6 +126,10 @@
         display:flex; flex-direction:row;
         gap:12px;
 }
+.shopitemthumb
+{
+        max-width:100%;
+}
 @media (max-width: 800px) {
         .shopitemimagebox
         {
