@@ -113,7 +113,7 @@ function showShopItem(index)
         console.log(shopdata[index]);
         $('#shoppage').css('display', 'none');
         $('#shopitemview').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
-        $('.shopitemtitle').html(data[0]);
+        $('#shopitemtitle').html(data[0]);
         $('#shopitemimagelink1').attr('href', 'images/shop/'+category+'/'+data[9]);
         $('#shopitemimage1').attr('src', 'images/shop/'+category+'/'+data[9]);
         $('#shopitemthumb1').attr('src', 'images/shop/'+category+'/t/'+data[9]).css({'border' : '1px solid #FFF',}).off('click').click(function(){
@@ -158,7 +158,7 @@ function showShopItem(index)
         }
 
 
-        $('.shopitemdescription').html(data[15]);
+        $('#shopitemdescription').html(data[15]);
         var shoptable = '';
         shoptable += `<tr>
                 <td class="tdr">Category:</td>
