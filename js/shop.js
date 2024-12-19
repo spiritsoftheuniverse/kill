@@ -46,14 +46,12 @@ function parseShopCSV(file) {
 }
 function writeShopData(data)
 {
-        console.log(data);
         var html = '';
         const count = Object.keys(data).length;
         for(let i = 0; i < count; i++) {
             if(i != 0)
             {
                 var d = data[i];
-                console.log(d);
                 var category = d[1];
                 var status;
                 var thumbstyle = '';
@@ -110,7 +108,6 @@ function showShopItem(index)
         index = parseInt(index);
         var data = shopdata[index];
         var category = data[1];
-        console.log(shopdata[index]);
         $('#shoppage').css('display', 'none');
         $('#shopitemview').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
         $('#shopitemtitle').html(data[0]);
