@@ -135,6 +135,11 @@
         border:1px solid rgba(200, 200, 200, 0.5);
         border-radius:4px;
 }
+.shopitemgrid
+{
+        display:flex;
+        justify-content:center;
+}
 @media (max-width: 800px) {
         .shopitemimagebox
         {

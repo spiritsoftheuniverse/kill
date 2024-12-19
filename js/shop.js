@@ -1,11 +1,18 @@
 var shopcreated=false;
 var shopdata;
 $(document).ready(function(){
-        $('#returnshopbutton').click(function(){
+        $('.returnshopbutton').click(function(){
                 $('#shopitemview').css('display', 'none');
+                $('#shopfaqview').css('display', 'none');
                 $('#shoppage').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
         })
+        $('#shopfaqbutton').click(function(){showshopfaq()})
 })
+function showshopfaq()
+{
+        $('#shoppage').css('display', 'none');
+        $('#shopfaqview').css({'display' : 'block', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
+}
 async function createShopPage()
 {
         if(shopcreated)
