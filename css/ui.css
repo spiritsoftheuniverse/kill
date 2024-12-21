@@ -16,6 +16,7 @@
         height:calc(100% - 20px);
         position:absolute;
         opacity:0.2;
+        z-index:-1;
         
 }
 
@@ -26,6 +27,7 @@
         height:12px;
         position:absolute;
         opacity:0.2;
+        z-index:-1;
 }
 .fourby8
 {
@@ -34,6 +36,7 @@
         height:8px;
         position:absolute;
         opacity:0.2;
+        z-index:-1;
 }
 .twoline
 {
@@ -41,6 +44,7 @@
         width:4px;
         height:2px;
         position:absolute;
+        z-index:-1;
 }
 .volumeui
 {
@@ -50,6 +54,7 @@
         position:absolute;
         opacity:0.025;
         background-size: 32px 16px;
+        z-index:-1;
 }
 .volumeuiReverse
 {
@@ -60,6 +65,7 @@
         opacity:0.025;
         background-size: 32px 16px;
         transform: rotate(180deg); /* Rotate the entire container */
+        z-index:-1;
 }
 .uigrid
 {
@@ -70,7 +76,7 @@
         top:0;
         left:0;
         opacity:0.035;
-        
+        z-index:-1;
         animation: gridup 2s linear infinite; /* Adjust duration and timing */
 }
 @keyframes gridup {

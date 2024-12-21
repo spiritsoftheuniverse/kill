@@ -82,7 +82,7 @@ a:hover{
         user-select: none;
         font-family: "komika";
         font-size:20px;
-        cursor:pointer;
+        cursor:pointer !important;
 }
 .creditsContainer
 {
@@ -95,7 +95,7 @@ a:hover{
 }
 .button:hover
 {
-        color:#F00;
+        color:rgb(132, 181, 255);
 }
 .container
 {

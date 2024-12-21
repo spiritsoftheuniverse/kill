@@ -103,7 +103,7 @@ function writeCategories(data)
                 <div class="artthumbbox" data-folder="`+data[i][0]+`">`+description+`<div class="artthumbcontainer"></div></div>
             `;
         }
-        $('#artpage').html(html);
+        $('#artpagecontents').html(html);
 
         $('.arthead').click(function(){
                 showArtThumbs($(this).attr('data-folder'));

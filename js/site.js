@@ -96,7 +96,7 @@ function showPage(page)
         $('#shopitemview').css('display', 'none');
         $('#shopfaqview').css('display', 'none');
         for(let i = 0; i < pages.length; i++) {
-            $('#'+pages[i]+'page').css(
+            $('#'+pages[i]+'page').stop().css(
                 {
                         'display' : 'none',
                 });
@@ -107,7 +107,7 @@ function showPage(page)
                         'color' : 'inherit',
                 });
         }
-        $('#'+page+'page').css('display', 'block');
+        $('#'+page+'page').css({'display': 'block', 'opacity' : '0'}).animate({'opacity' : '1',}, 300);
         $('#'+page+'button').css({
                 'cursor' : 'default',
                 'pointer-events' : 'none',
