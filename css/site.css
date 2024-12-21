@@ -118,6 +118,7 @@ p{
         gap:16px;
         align-items:center;
         justify-content:center;
+        margin-bottom:24px;
 }
 .audiocontainer
 {
@@ -168,10 +169,11 @@ p{
         justify-content:center;
         gap:12px;
         margin:12px;
-        border-radius:4px;
         padding:12px;
         position:relative;
         overflow:hidden;
+        border-top:1px solid rgba(255, 255, 255, 0.1);
+        border-bottom:1px solid rgba(255, 255, 255, 0.1);
 }
 .lewie
 {
@@ -243,6 +245,21 @@ p{
 {
         text-align:right;
 }
+.video-container {
+        position: relative;
+        max-width: 960px; /* Set your desired max width */
+        margin: 0 auto; /* Center the video horizontally */
+        aspect-ratio: 16 / 9; /* Maintain the 16:9 aspect ratio */
+}
+      
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0; /* Optional: Remove border */
+      }
 @keyframes scrollRight28 {
         from {
             background-position-x: 0;

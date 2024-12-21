@@ -34,6 +34,20 @@
         display:none;
         padding:8px;
 }
+.videocaption
+{
+         margin: 0 auto; max-width:500px;
+         font-size:80%;
+         margin-top:8px;
+         margin-bottom:8px;
+}
+.nearest {
+        image-rendering: pixelated; /* For modern browsers */
+        image-rendering: crisp-edges; /* Fallback for older browsers */
+        image-rendering: -moz-crisp-edges; /* For older versions of Firefox */
+        image-rendering: -webkit-optimize-contrast; /* For older versions of WebKit-based browsers */
+        image-rendering: -o-crisp-edges; /* For older versions of Opera */
+      }
 @media (max-width: 460px) {
         
         .artthumbflex

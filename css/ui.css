@@ -1,0 +1,83 @@
+.uipanel
+{
+        padding:4px;
+        padding-left:24px;
+        padding-right:24px;
+        background-color:rgba(255, 255, 255, 0.05);
+        position:relative;
+        border:1px solid rgba(255, 255, 255, 0.1);
+        border-left:none;
+        border-right:none;
+}
+.tallSnake
+{
+        background-image:url('../images/ui/tallSnake.gif');
+        width:4px;
+        height:calc(100% - 20px);
+        position:absolute;
+        opacity:0.2;
+        
+}
+
+.LRotator
+{
+        background-image:url('../images/ui/LRotator.gif');
+        width:4px;
+        height:12px;
+        position:absolute;
+        opacity:0.2;
+}
+.fourby8
+{
+        background-image:url('../images/ui/4x8.gif');
+        width:4px;
+        height:8px;
+        position:absolute;
+        opacity:0.2;
+}
+.twoline
+{
+        background-color:rgba(255, 255, 255, 0.2);
+        width:4px;
+        height:2px;
+        position:absolute;
+}
+.volumeui
+{
+        background-image:url('../images/ui/volume.gif');
+        width:100%;
+        height:16px;
+        position:absolute;
+        opacity:0.025;
+        background-size: 32px 16px;
+}
+.volumeuiReverse
+{
+        background-image:url('../images/ui/volume.gif');
+        width:100%;
+        height:16px;
+        position:absolute;
+        opacity:0.025;
+        background-size: 32px 16px;
+        transform: rotate(180deg); /* Rotate the entire container */
+}
+.uigrid
+{
+        background-image:url('../images/ui/uigrid.png');
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        opacity:0.035;
+        
+        animation: gridup 2s linear infinite; /* Adjust duration and timing */
+}
+@keyframes gridup {
+        from {
+            background-position-y: 0;
+        }
+        to {
+            background-position-y: -16px; /* Moves up by 101 pixels */
+        }
+    }

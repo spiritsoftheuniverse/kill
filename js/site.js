@@ -72,7 +72,25 @@ $(document).ready(async function(){
                 console.error(`Failed to process file: ${file}`, error);
                 }
         }
+        $('.ui').html(makeUI());
 });
+function makeUI()
+{
+        return `<div class="nearest uigrid"></div>
+                        <div class="nearest volumeui" style="left:0; top:0px;"></div>
+                        <div class="nearest volumeuiReverse" style="left:0; bottom:0px;"></div>
+                        <div class="nearest tallSnake" style="left:-4px; top:12px; border-left:1px solid #FFF"></div>
+                        <div class="nearest LRotator" style="left:-4px; top:0;"></div>
+                        <div class="nearest fourby8" style="left:-4px; bottom:0;"></div>
+                        <div class="nearest twoline" style="left:-4px; bottom:-1px;"></div>
+                        <div class="nearest twoline" style="left:-4px; top:-1px;"></div>
+                        
+                        <div class="nearest tallSnake" style="right:-4px; top:12px; border-right:1px solid #FFF"></div>
+                        <div class="nearest LRotator" style="right:-4px; top:0;"></div>
+                        <div class="nearest fourby8" style="right:-4px; bottom:0;"></div>
+                        <div class="nearest twoline" style="right:-4px; bottom:-1px;"></div>
+                        <div class="nearest twoline" style="right:-4px; top:-1px;"></div>`;
+}
 function showPage(page)
 {
         $('#shopitemview').css('display', 'none');
