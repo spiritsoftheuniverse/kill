@@ -73,7 +73,27 @@ $(document).ready(async function(){
                 }
         }
         $('.ui').html(makeUI());
+        listbuttonevents();
 });
+function listbuttonevents()
+{
+        $('.listbutton').click(function(){
+                $('.mobilelist').css({'display' : 'flex', 'opacity' : '0'}).animate({'opacity' : '1'}, 200);
+        })
+        var html = `
+                        <div class="nearest tallSnake" style="left:-6px; top:0px; height:100%; border-left:1px solid #FFF"></div>
+                        <div class="nearest tallSnake" style="right:-6px; top:0px; height:100%; border-right:1px solid #FFF"></div>
+                        <div class="boxsnake nearest" style="bottom:-4px; right:-4px;"></div>
+                        <div class="boxsnake nearest" style="top:-4px; right:-4px;"></div>
+                        <div class="boxsnake nearest" style="bottom:-4px; left:-4px;"></div>
+                        <div class="boxsnake nearest" style="top:-4px; left:-4px;"></div>
+                        <div class="nearest uigrid"></div>`;
+        $('.mobilebutton').append(html).click(function(){
+                var data = $(this).attr('data');
+                $('.mobilelist').css({'display' : 'none'});
+                $('.button[data="'+data+'"]').click();
+        });
+}
 function makeUI()
 {
         return `<div class="nearest uigrid"></div>
