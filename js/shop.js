@@ -71,6 +71,10 @@ function writeShopData(data)
                 }
                 
                 html += `<div class="shopthumbflex">
+                                <div class="boxsnake nearest" style="bottom:-4px; right:-4px;"></div>
+                                <div class="boxsnake nearest" style="top:-4px; right:-4px;"></div>
+                                <div class="boxsnake nearest" style="bottom:-4px; left:-4px;"></div>
+                                <div class="boxsnake nearest" style="top:-4px; left:-4px;"></div>
                                 <img class="shopthumb" `+thumbstyle+` data-category="`+category+`" data-clickable="`+clickable+`" data-status="`+d[8]+`" data-index="`+i+`" src="images/shop/`+category+`/t/`+d[9]+`">
                         <div class="shopthumbtitle"><div>`+d[0]+`</div><div class="shopstatus">`+capitalize(category)+`</div><div class="shopstatus">`+status+`</div></div>
                 </div>`;

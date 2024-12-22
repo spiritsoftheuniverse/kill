@@ -290,17 +290,18 @@
                 </section>
         </div>
         <div class="content" id="shoppage">
-                <section class="uipanel">
-                        <div class="ui"></div>
                         <div class="returnshopbox" style="text-align:center; font-size:100%; margin-top:24px;"><a href="javascript:void(0);" id="shopfaqbutton">FAQ</a> | <a href="mailto:treehousestudioshop@gmail.com">Shop E-mail</a></div>
-                        <div class="shopitemgrid" id="shopitems" style="margin-bottom:24px;"></div>
-                </section>
+                        <div id="shopitems" style="display:flex; justify-content:center;"></div>
         </div>
         <div class="content" id="shopitemview" style="display:none;">
                 <div class="returnshopbox"><a href="javascript:void(0);" class="returnshopbutton">&larr; Return to Shop</a></div>
                 <div class="shopitemcontainer">
                         <div class="shopitemimagebox">
-                                <div>
+                                <div class="shopitemdatabox" style="border:1px solid rgba(255, 255, 255, 0.1);">
+                                        <div class="boxsnake nearest" style="bottom:-4px; right:-4px;"></div>
+                                        <div class="boxsnake nearest" style="top:-4px; right:-4px;"></div>
+                                        <div class="boxsnake nearest" style="bottom:-4px; left:-4px;"></div>
+                                        <div class="boxsnake nearest" style="top:-4px; left:-4px;"></div>
                                         <a href="" data-lightbox="shopitemview" id="shopitemimagelink1"><img id="shopitemimage1" class="shopitemimage"></a>
                                         <a href="" data-lightbox="shopitemview" id="shopitemimagelink2"><img id="shopitemimage2" class="shopitemimage" style="display:none;"></a>
                                         <a href="" data-lightbox="shopitemview" id="shopitemimagelink3"><img id="shopitemimage3" class="shopitemimage" style="display:none;"></a>
@@ -311,36 +312,42 @@
                                         <a href="javascript:void(0)" id="shopitemthumblink3"><img id="shopitemthumb3" class="shopitemthumb"></a>
                                 </div>
                         </div>
-                        <div class="shopitemdata">
-                                <div class="shopitemtitle">
-                                        <div class="lewieArrow"></div>
-                                        <div id="shopitemtitle"></div>
-                                </div>
-                                <div class="purchaseTableBox">
-                                        <div class="lewieDotCross"></div>
-                                        <div class="purchasePrice"></div>
-                                        <table cellpadding="4" cellspacing="4" id="purchasetable">
+                        <nav class="shopitemdata">
+                                <div class="shopitemdatabox">
+                                        <div class="boxsnake nearest" style="bottom:-4px; right:-4px;"></div>
+                                        <div class="boxsnake nearest" style="top:-4px; right:-4px;"></div>
+                                        <div class="boxsnake nearest" style="bottom:-4px; left:-4px;"></div>
+                                        <div class="boxsnake nearest" style="top:-4px; left:-4px;"></div>
+                                        <div class="shopitemtitle">
+                                                <div class="lewieArrow"></div>
+                                                <div id="shopitemtitle"></div>
+                                        </div>
+                                        <div class="purchaseTableBox">
+                                                <div class="lewieDotCross"></div>
+                                                <div class="purchasePrice"></div>
+                                                <table cellpadding="4" cellspacing="4" id="purchasetable">
 
-                                        </table>
-                                </div>
-                                <div class="shopitemdescription">
-                                        <div class="lewieDotCross"></div>
-                                        <div id="shopitemdescription"></div>
-                                </div>
-                                <div class="shoptableBox">
-                                        <div class="lewieSmallBox"></div>
-                                        <table cellpadding="4" cellspacing="4" id="shopdatatable">
+                                                </table>
+                                        </div>
+                                        <div class="shopitemdescription">
+                                                <div class="lewieDotCross"></div>
+                                                <div id="shopitemdescription"></div>
+                                        </div>
+                                        <div class="shoptableBox">
+                                                <div class="lewieSmallBox"></div>
+                                                <table cellpadding="4" cellspacing="4" id="shopdatatable">
 
-                                        </table>
+                                                </table>
+                                        </div>
                                 </div>
-                        </div>
+                        </nav>
                 </div>
         </div>
         <div class="content" id="shopfaqview" style="display:none;">
                 
+                <div class="returnshopbox" style="margin-top:12px;"><a href="javascript:void(0);" class="returnshopbutton">&larr; Return to Shop</a></div>
                 <section class="uipanel">
                         <div class="ui"></div>
-                        <div class="returnshopbox" style="margin-top:12px;"><a href="javascript:void(0);" class="returnshopbutton">&larr; Return to Shop</a></div>
                         <p class="phead">Shipping</p>
                         <p class="pindent">
                                 <ul>
