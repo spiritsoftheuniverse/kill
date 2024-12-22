@@ -82,8 +82,13 @@ function writeArtThumbs(category, data)
                         description  = ' - '+data[i][2]
                 }
                 html += `<div class="artthumbflex">
+                
+                                <div class="boxsnake nearest" style="bottom:-4px; right:-4px;"></div>
+                                <div class="boxsnake nearest" style="top:-4px; right:-4px;"></div>
+                                <div class="boxsnake nearest" style="bottom:-4px; left:-4px;"></div>
+                                <div class="boxsnake nearest" style="top:-4px; left:-4px;"></div>
                         <a href="images/art/`+category+`/`+data[i][0]+`" data-lightbox="`+category+`" data-title="`+data[i][1]+description+`"><img class="artthumb" src="images/art/`+category+`/t/`+data[i][0]+`"></a>
-                        <div class="artthumbtitle">`+data[i][1]+`</div>
+                        <div class="artthumbtitle"><div class="nearest uigrid"></div>`+data[i][1]+`</div>
                 </div>`;
         }
         $('.artthumbbox[data-folder="'+category+'"] .artthumbcontainer').html(html);

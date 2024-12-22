@@ -4,9 +4,8 @@
         display:inline-flex;
         margin:4px;
         flex-direction:column;
-        border-radius:4px;
-        overflow:hidden;
         border:1px solid rgba(200, 200, 200, 0.2);
+        position:relative;
 }
 .artthumb
 {
@@ -20,6 +19,7 @@
         background-color:rgba(100, 100, 100, 0.2);
         font-size:90%;
         padding:4px;
+        position:relative;
 }
 .arthead
 {
