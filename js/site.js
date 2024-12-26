@@ -1,4 +1,4 @@
-var pages = ['home','art','shop',];
+var pages = ['home','art','shop',,'wpaper','support', 'credit'];
 var currentpage=  'home';
 
 $(document).ready(async function(){
